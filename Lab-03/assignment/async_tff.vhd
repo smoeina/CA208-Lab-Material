@@ -31,8 +31,18 @@ entity t_flop is
 end t_flop;
 
 architecture d_flop_arc of d_flop is
+	signal my_t : in std_logic; 	
 begin
-
-	-- write your code here!
+    TFF-Async : process(clk, rst) begin
+        if rst = '1' then
+			q <= '0';
+			qb <= '1';
+        elsif rising_egde(clk) then
+            if t = '1' then
+				q <= not q;
+				qb <= not q;
+            end if;
+        end if;
+    end process; ; -- TFF-Async
 
 end d_flop_arc;

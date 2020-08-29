@@ -31,7 +31,9 @@ end ripple_counter;
 
 architecture comprator_arc of ripple_counter is
 begin
+signal wire : std_logic_vector(9 downto 0)
+First_TFF : 
 
-	-- write your code here!
+
 
 end comprator_arc;

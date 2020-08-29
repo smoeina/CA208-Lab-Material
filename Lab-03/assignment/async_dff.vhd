@@ -8,12 +8,12 @@
 --  *******************************************************
 --  All Rights reserved (C) 2019-2020
 --  *******************************************************
---  Student ID  : 
---  Student Name: 
---  Student Mail: 
+--  Student ID  : 9731114
+--  Student Name: Seyed Moein Ayyoubzadeh
+--  Student Mail: s.m.ayyoubzadeh@aut.ac.ir
 --  *******************************************************
 --  Additional Comments:
---
+--	Thanks God
 --*/
 
 -----------------------------------------------------------
@@ -32,7 +32,16 @@ end d_flop;
 
 architecture d_flop_arc of d_flop is
 begin
-
-	-- write your code here!
+ process(clk,rstn)
+begin
+	if (rstn = '1' ) then
+		q <= '0';
+		qb <= '1';
+	elsif (rising_edge(clk)) then
+		q <= d;
+		qb <= not d;
+	end if ;
+end process ; 
+	
 
 end d_flop_arc;
