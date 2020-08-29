@@ -31,20 +31,27 @@ entity t_flop is
 		q   : out std_logic;
 		qb  : out std_logic
 	);
+
 end t_flop;
 
 architecture t_flop_arc of t_flop is
+	signal miani,miani_b : std_logic;
+
 begin
+
 	 process(clk, rst) begin
         if rst = '1' then
-			q <= '0';
-			qb <= '1';
-        elsif rising_egde(clk) then
+			miani <= '0';
+			miani_b <= '1';
+        elsif rising_edge(clk) then
             if t = '1' then
-				q <= not q;
-				qb <= not q;
+				miani <= not miani;
+				miani_b <= not miani;
             end if;
         end if;
-    end process; 
+    end process;
+	q <= miani;
+	qb <= miani_b;
 
 end t_flop_arc;
+
