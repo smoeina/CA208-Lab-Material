@@ -8,43 +8,43 @@
 --  *******************************************************
 --  All Rights reserved (C) 2019-2020
 --  *******************************************************
---  Student ID  : 9731114
---  Student Name: Seyed Moein Ayyoubzadeh
---  Student Mail: s.m.ayyoubzadeh@aut.ac.ir
+--  Student ID  : 
+--  Student Name: 
+--  Student Mail: 
 --  *******************************************************
 --  Additional Comments:
---	Thanks God
+--
 --*/
 
 -----------------------------------------------------------
----  Module Name: Async D Flop
----  Description: Asynchronous D Type Flip Flop
+---  Module Name: Async T Flop
+---  Description: Asynchronous Toggle Flip Flop
 -----------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
-entity d_flop is
+entity t_flop is
 	port (
-		clk  : in  std_logic;
-		rstn : in  std_logic;
-		d    : in  std_logic;
-		q    : out std_logic;
-		qb   : out std_logic
+		clk : in  std_logic;
+		rst : in  std_logic;
+		t   : in  std_logic;
+		q   : out std_logic;
+		qb  : out std_logic
 	);
-end d_flop;
+end t_flop;
 
-architecture d_flop_arc of d_flop is
+architecture t_flop_arc of t_flop is
 begin
- process(clk,rstn)
-begin
-	if (rstn = '1' ) then
-		q <= '0';
-		qb <= '1';
-	elsif (rising_edge(clk)) then
-		q <= d;
-		qb <= not d;
-	end if ;
-end process ; 
-	
+	 process(clk, rst) begin
+        if rst = '1' then
+			q <= '0';
+			qb <= '1';
+        elsif rising_egde(clk) then
+            if t = '1' then
+				q <= not q;
+				qb <= not q;
+            end if;
+        end if;
+    end process; 
 
 end d_flop_arc;

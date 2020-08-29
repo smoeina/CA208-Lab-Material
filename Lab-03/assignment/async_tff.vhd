@@ -20,6 +20,9 @@
 ---  Module Name: Async T Flop
 ---  Description: Asynchronous Toggle Flip Flop
 -----------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
 entity t_flop is
 	port (
 		clk : in  std_logic;
@@ -30,10 +33,9 @@ entity t_flop is
 	);
 end t_flop;
 
-architecture d_flop_arc of d_flop is
-	signal my_t : in std_logic; 	
+architecture t_flop_arc of t_flop is
 begin
-    TFF-Async : process(clk, rst) begin
+	 process(clk, rst) begin
         if rst = '1' then
 			q <= '0';
 			qb <= '1';
@@ -43,6 +45,6 @@ begin
 				qb <= not q;
             end if;
         end if;
-    end process; ; -- TFF-Async
+    end process; 
 
-end d_flop_arc;
+end t_flop_arc;
